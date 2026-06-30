@@ -2,8 +2,8 @@ from django.shortcuts import render,redirect
 from . models import todoapp
 # Create your views here.
 def index(request):
-    todo=todoapp.objects.all()
-    return render(request,'index.html',{'todo':todo}) 
+    todos=todoapp.objects.all()
+    return render(request,'index.html',{'todos':todos}) 
 
 def add_task(request):
     if request.method=='POST':
@@ -17,7 +17,7 @@ def delete_task(request,id):
     a=todoapp.objects.filter(id=id)
     a.delete()
     return redirect('home')
-    
+
 def update_task(request,id):
     a=todoapp.objects.get(id=id)
     if request.method=='POST':

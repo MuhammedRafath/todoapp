@@ -3,16 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add Task</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#F4F7FC;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+        }
+
+        .container{
+            width:400px;
+            background:#fff;
+            padding:30px;
+            border-radius:12px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        h1{
+            text-align:center;
+            color:#333;
+            margin-bottom:25px;
+        }
+
+        form{
+            display:flex;
+            flex-direction:column;
+            gap:15px;
+        }
+
+        label{
+            font-weight:bold;
+            color:#444;
+        }
+
+        input{
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            font-size:16px;
+            outline:none;
+        }
+
+        input:focus{
+            border-color:#3B82F6;
+        }
+
+        button{
+            background:#10B981;
+            color:white;
+            border:none;
+            padding:12px;
+            border-radius:8px;
+            font-size:16px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        button:hover{
+            background:#059669;
+        }
+
+        .back-btn{
+            display:block;
+            margin-top:15px;
+            text-align:center;
+            text-decoration:none;
+            color:#3B82F6;
+            font-weight:bold;
+        }
+
+        .back-btn:hover{
+            text-decoration:underline;
+        }
+    </style>
 </head>
 <body>
+
+<div class="container">
+
+    <h1>Add New Task</h1>
+
     <form method="POST">
         {% csrf_token %}
-        <label for="">TASK NAME</label>
-        <input type="text" name="task-name">
-        <label for="">TASK DATE</label>
-        <input type="date" name="task-date">
-        <button>ADD TASK</button>
+
+        <label for="task">Task Name</label>
+        <input
+            type="text"
+            id="task"
+            name="task-name"
+            placeholder="Enter your task"
+            required
+        >
+        <label for="task">Task Date</label>
+        <input
+            type="date"
+            id="task"
+            name="task-date"
+            required
+        >
+
+        <button type="submit">➕ Add Task</button>
     </form>
+
+    <a yhref="{% url 'home' %}" class="back-btn">← Back to Home</a>
+
+</div>
+
 </body>
 </html>
