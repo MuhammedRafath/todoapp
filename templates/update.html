@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="">TASK NAME</label>
+        <input type="text" name="Task-name" value="{{a.taskname}}">
+        <label for="">TASK DATE</label>
+        <input type="date" name="task-date" value="{{a.date}}">
+        <button>ADD TASK</button>
+    </form>
+</body>
+</html>
